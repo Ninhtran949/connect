@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: floralwhite;
+            border-radius: 10px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
+        select {
+            padding: 6px;
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            margin: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0a600e;
+        }
+        
+        *{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Form đăng ký</h1>
+        <form action="http://localhost/connect/insert.php" name="Register" method="post" style="background-color: #bff1ec;">
+        <table cellpadding="5" cellspacing="0" id="table_form" align="center">
+            <tr>
+                <td width="30%" class="col1"><label for="username">Họ và tên người dùng:</label></td>
+                <td><input type="text" size="40" id="username" name="username" value=""></input><span id="eruser" class="error"></span></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="userID">Tên Đăng nhập:</label></td>
+                <td><input type="text" size="40" id="userID" name="userID" value=""></input><span id="eruserID" class="error"></span></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="password">Mật khẩu:</label></td>
+                <td><input type="password" size="40" id="password" name="password" value=""></input><span id="erPass" class="error"></span></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="repass">Nhập lại mật khẩu:</label></td>
+                <td><input type="password" size="40" id="repass" name="repass" value=""></input><span id="erRePass" class="error"></span></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="email">Email:</label></td>
+                <td><input type="text" size="40" id="email" name="email" value=""></input><span id="erEmail" class="error"></span></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="rgender">Giới tính:</label></td>
+                <td><input type="radio" id="male" name="rgender" value="Nam" checked="checked"><label for="male">Nam</label></input><input type="radio" id="female" name="rgender" value="Nữ"><label for="female">Nữ</label></input></td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="rgender">Sở thích:</label></td>
+                <td>
+                    <input type="checkbox" id="game" name="sothich" value="game"><label for="game">Chơi game</label>
+                    <input type="checkbox" id="shopping" name="sothich" value="Mua sắm"><label for="shopping">Mua sắm</label>
+                    <input type="checkbox" id="travel" name="sothich" value="Du lịch"><label for="travel">Du lịch</label>
+                    <input type="checkbox" id="other" name="sothich" value="khác" checked><label for="other">Khác</label>
+                </td>               
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="">Năm sinh:</label></td>
+                <td>
+                    <label for="day">Ngày</label>
+                    <select id="day" name="day">
+                        <script>
+                            for(var i = 1; i<=31;i++){
+                                document.write("<option value=\""+i+"\">"+i+"<//option>");
+                            }
+                        </script>
+                    </select>
+                    <label for="month">  Tháng</label>
+                    <select id="month" name="month">
+                        <script>
+                            for(var j = 1; j<=12;j++){
+                                document.write("<option value=\""+j+"\">"+j+"<//option>");
+                            }
+                        </script>
+                    </select>
+                    <label for="year">  Năm</label>
+                    <select id="year" name="year">
+                        <script>
+                            var d = new Date();
+                            var _year = d.getFullYear();
+                            for(var k = 1900; k<=_year;k++){
+                                document.write("<option value=\""+k+"\">"+k+"<//option>");
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%" class="col1"><label for="address">Địa chỉ:</label></td>
+                <td><textarea id="address" name="address"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="submit" value="Submit"><input type="reset" name="reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+
+</html>
